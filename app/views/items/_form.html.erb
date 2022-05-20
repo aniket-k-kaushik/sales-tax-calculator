@@ -33,7 +33,7 @@
 
   <div class="my-5">
     <%= form.label :category %>
-    <%= form.collection_select :tax_id, @taxes, :id, :name, include_blank: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"  %>
+    <%= form.collection_select :tax_id, @taxes, :id, :name, include_blank: true  %>
   </div>
 
   <div class="inline">

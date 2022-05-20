@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @taxes = Tax.all.by_name
   end
 
   # POST /items or /items.json
