@@ -1,5 +1,8 @@
 <div class="px-4 sm:px-6 lg:px-8">
-
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Generate Invoice</h1>
+  </div>
+  <% currency_symbol = "€" %>
   <div class="mt-8 flex flex-col">
     <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -26,12 +29,12 @@
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:category] %></td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:quantity] %></td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:description] %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:price] %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:sales_tax_rate] %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:sales_tax] %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:imported_sales_tax_rate] %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:imported_sales_tax] %></td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:price_with_tax] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:price]}" %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{item[:sales_tax_rate]} %" %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:sales_tax]}" %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{item[:imported_sales_tax_rate]} %" %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:imported_sales_tax]}" %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:price_with_tax]}" %></td>
                 </div>
               </tr>
             <% end %>
@@ -43,13 +46,13 @@
   </div>
 
   <div class="mt-4">
-    <h3 class="font-bold text-md text-gray-400">Total Sales Tax : <%= items[:total_sales_tax] %></h3>
+    <h3 class="font-bold text-md text-gray-400">Total Sales Tax : <%= "#{currency_symbol} #{items[:total_sales_tax]}" %></h3>
   </div>
   <div class="mt-2">
-    <h3 class="font-bold text-md text-gray-400">Total Import Tax : <%= items[:total_import_tax] %></h3>
+    <h3 class="font-bold text-md text-gray-400">Total Import Tax : <%= "#{currency_symbol} #{items[:total_import_tax]}" %></h3>
   </div>
   <div class="mt-4 place-items-end">
-    <h3 class="font-bold text-2xl text-indigo-900">Total : <%= items[:price_including_tax] %></h3>
+    <h3 class="font-bold text-2xl text-indigo-900">Total : <%= "#{currency_symbol} #{items[:price_including_tax]}" %></h3>
   </div>
 
   <div class="my-8">

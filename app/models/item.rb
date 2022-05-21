@@ -3,6 +3,11 @@
 class Item < ApplicationRecord
   belongs_to :tax
 
+  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :description, presence: true
+  validates :shelf_price, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :tax_id, presence: true
+
   def self.tax_calculation
     items = Item.includes(:tax).all
     total_price_including_tax = []
@@ -28,7 +33,7 @@ class Item < ApplicationRecord
           sales_tax_rate: item.tax.rate,
           sales_tax: sales_tax,
           imported_sales_tax_rate: item.imported? ? 5 : 0,
-          imported_sales_tax: imported_sales_tax,
+          imported_sales_tax: imported_sales_tax || 0,
           price_with_tax: price_with_tax
         })
     end

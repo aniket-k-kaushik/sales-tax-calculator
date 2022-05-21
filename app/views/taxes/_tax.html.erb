@@ -1,7 +1,7 @@
 <%= turbo_frame_tag tax do %>
   <div class="table min-w-full">
     <div><%= tax.name %></div>
-    <div><%= tax.rate %></div>
+    <div><%= "#{tax.rate} %" %></div>
     <div>
       <% if action_name != "show" %>
         <%= link_to edit_tax_path(tax) do %>
