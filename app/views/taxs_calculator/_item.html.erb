@@ -1,32 +1,88 @@
-<div id="<%= dom_id item %>">
-  <p class="my-5">
-    <strong class="block font-semibold mb-1">Quantity:</strong>
-    <%= item.quantity %>
-  </p>
+<%# items[:items_price_with_tax].each do |item| %>
+<!--  <div id="<%#= item[:id] %>">-->
+<!--      <p class="my-5">-->
+<!--        <strong class="block font-semibold mb-1">Quantity:</strong>-->
+        <%#= item[:quantity] %>
+<!--      </p>-->
+<!--  </div>-->
+<%# end %>
 
-  <p class="my-5">
-    <strong class="block font-semibold mb-1">Description:</strong>
-    <%= item.description %>
-  </p>
+<div class="px-4 sm:px-6 lg:px-8">
 
-  <p class="my-5">
-    <strong class="block font-semibold mb-1">Shelf price:</strong>
-    <%= item.shelf_price %>
-  </p>
+  <div class="mt-8 flex flex-col">
+    <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+        <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-300">
+            <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Category</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quantity</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Description</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Price</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Sales Tax Rate (%)</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Sales Tax</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Import Tax Rate (%)</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Import Tax</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Total Price</th>
+            </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200 bg-white">
 
-  <p class="my-5">
-    <strong class="block font-semibold mb-1">Imported:</strong>
-    <%= item.imported %>
-  </p>
+            <% items[:items_price_with_tax].each do |item| %>
+              <tr>
+                <div id="<%= item[:id] %>">
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:category] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:quantity] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:description] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:price] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:sales_tax_rate] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:sales_tax] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:imported_sales_tax_rate] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:imported_sales_tax] %></td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:price_with_tax] %></td>
+                </div>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-semibold mb-1">Tax:</strong>
-    <%= item.tax_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this item", item, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this item', edit_item_path(item), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
 </div>
+
+
+<!--<div id="<%#= dom_id item %>">-->
+<!--  <p class="my-5">-->
+<!--    <strong class="block font-semibold mb-1">Quantity:</strong>-->
+    <%#= item.quantity %>
+<!--  </p>-->
+
+<!--  <p class="my-5">-->
+<!--    <strong class="block font-semibold mb-1">Description:</strong>-->
+    <%#= item.description %>
+<!--  </p>-->
+
+<!--  <p class="my-5">-->
+<!--    <strong class="block font-semibold mb-1">Shelf price:</strong>-->
+    <%#= item.shelf_price %>
+<!--  </p>-->
+
+<!--  <p class="my-5">-->
+<!--    <strong class="block font-semibold mb-1">Imported:</strong>-->
+    <%#= item.imported %>
+<!--  </p>-->
+
+<!--  <p class="my-5">-->
+<!--    <strong class="block font-semibold mb-1">Tax:</strong>-->
+    <%#= item.tax_id %>
+<!--  </p>-->
+
+  <%# if action_name != "show" %>
+    <%#= link_to "Show this item", item, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%#= link_to 'Edit this item', edit_item_path(item), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+<!--    <hr class="mt-6">-->
+  <%# end %>
+<!--</div>-->

@@ -2,6 +2,6 @@
 
 class TaxsCalculatorController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.tax_calculation
   end
 end
