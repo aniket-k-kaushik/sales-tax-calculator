@@ -12,4 +12,4 @@
 * Added Husky precommit 
 * Installed TailwindCSS
 
-/home/aniketkaushik/Downloads/ss_sales_tax_frontend.png
+![ss_sales_tax_frontend](https://user-images.githubusercontent.com/94526737/169645922-02c16708-9367-4c96-a01e-869a7a8eef4b.png)
