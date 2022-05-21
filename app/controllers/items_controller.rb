@@ -3,10 +3,10 @@
 class ItemsController < ApplicationController
   include ActionView::RecordIdentifier
   before_action :set_item, only: %i[ show edit update destroy ]
-
+  before_action :set_select_collections, only: [:edit, :update, :new, :create]
   # GET /items
   def index
-    @items = Item.all
+    @items = Item.includes(:tax).all
   end
 
   # GET /items/1
@@ -15,7 +15,6 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @taxes = Tax.all.by_name
     @item = Item.new
   end
 
@@ -79,5 +78,9 @@ class ItemsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def item_params
       params.require(:item).permit(:quantity, :description, :shelf_price, :imported, :tax_id)
+    end
+
+    def set_select_collections
+      @taxes = Tax.all.by_name
     end
 end

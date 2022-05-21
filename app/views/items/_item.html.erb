@@ -37,7 +37,7 @@
     <div><%= item.description %></div>
     <div><%= item.shelf_price %></div>
     <div><%= item.imported %></div>
-    <div><%= item.tax_id %></div>
+    <div><%= item.tax.name %></div>
     <div>
       <% if action_name != "show" %>
         <%= link_to edit_item_path(item) do %>
