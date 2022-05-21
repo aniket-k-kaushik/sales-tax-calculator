@@ -11,3 +11,5 @@
   * Eslint
 * Added Husky precommit 
 * Installed TailwindCSS
+
+/home/aniketkaushik/Downloads/ss_sales_tax_frontend.png
