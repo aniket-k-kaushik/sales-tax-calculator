@@ -13,6 +13,7 @@
   <body>
     <%= render "partial/navbar" %>
     <main class="container mx-auto mt-16 px-5 flex">
+      <%= render partial: "layouts/flash" %>
       <%= yield %>
     </main>
   </body>

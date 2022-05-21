@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TaxesController < ApplicationController
+  include ActionView::RecordIdentifier
   before_action :set_tax, only: %i[ show edit update destroy ]
 
   # GET /taxes or /taxes.json
@@ -24,39 +25,43 @@ class TaxesController < ApplicationController
   # POST /taxes or /taxes.json
   def create
     @tax = Tax.new(tax_params)
-
-    respond_to do |format|
-      if @tax.save
-        format.html { redirect_to tax_url(@tax), notice: "Tax was successfully created." }
-        format.json { render :show, status: :created, location: @tax }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @tax.errors, status: :unprocessable_entity }
-      end
+    if @tax.save
+      flash.now[:notice] = "Tax was successfully created."
+      render turbo_stream: [
+        turbo_stream.prepend("taxes", @tax),
+        turbo_stream.replace(
+          "form_tax",
+          partial: "form",
+          locals: { tax: Tax.new }
+        ),
+        turbo_stream.replace("notice", partial: "layouts/flash")
+      ]
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /taxes/1 or /taxes/1.json
   def update
-    respond_to do |format|
-      if @tax.update(tax_params)
-        format.html { redirect_to tax_url(@tax), notice: "Tax was successfully updated." }
-        format.json { render :show, status: :ok, location: @tax }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @tax.errors, status: :unprocessable_entity }
-      end
+    if @tax.update(tax_params)
+      flash.now[:notice] = "Tax was successfully updated."
+      render turbo_stream: [
+        turbo_stream.replace(@tax, @tax),
+        turbo_stream.replace("notice", partial: "layouts/flash")
+      ]
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /taxes/1 or /taxes/1.json
   def destroy
     @tax.destroy
-
-    respond_to do |format|
-      format.html { redirect_to taxes_url, notice: "Tax was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash.now[:notice] = "Tax was successfully destroyed."
+    render turbo_stream: [
+      turbo_stream.remove(@tax),
+      turbo_stream.replace("notice", partial: "layouts/flash")
+    ]
   end
 
   private
