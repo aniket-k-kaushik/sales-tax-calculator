@@ -4,12 +4,12 @@ class TaxesController < ApplicationController
   include ActionView::RecordIdentifier
   before_action :set_tax, only: %i[ show edit update destroy ]
 
-  # GET /taxes or /taxes.json
+  # GET /taxes
   def index
     @taxes = Tax.all
   end
 
-  # GET /taxes/1 or /taxes/1.json
+  # GET /taxes/1
   def show
   end
 
@@ -22,7 +22,7 @@ class TaxesController < ApplicationController
   def edit
   end
 
-  # POST /taxes or /taxes.json
+  # POST /taxes
   def create
     @tax = Tax.new(tax_params)
     if @tax.save
@@ -41,7 +41,7 @@ class TaxesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /taxes/1 or /taxes/1.json
+  # PATCH/PUT /taxes/1
   def update
     if @tax.update(tax_params)
       flash.now[:notice] = "Tax was successfully updated."
@@ -54,7 +54,7 @@ class TaxesController < ApplicationController
     end
   end
 
-  # DELETE /taxes/1 or /taxes/1.json
+  # DELETE /taxes/1
   def destroy
     @tax.destroy
     flash.now[:notice] = "Tax was successfully destroyed."
