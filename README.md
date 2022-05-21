@@ -10,5 +10,4 @@
 
 ![ss_add_category](https://user-images.githubusercontent.com/94526737/169668310-ade7bc7d-e0bd-4dfb-9029-d2de7070fb87.png)
 
-
 ![ss_add_items](https://user-images.githubusercontent.com/94526737/169668316-93dffeda-ef09-42c1-be02-ec1164316401.png)
