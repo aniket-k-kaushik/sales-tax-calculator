@@ -42,4 +42,19 @@
     </div>
   </div>
 
+  <div class="mt-4">
+    <h3 class="font-bold text-md text-gray-400">Total Sales Tax : <%= items[:total_sales_tax] %></h3>
+  </div>
+  <div class="mt-2">
+    <h3 class="font-bold text-md text-gray-400">Total Import Tax : <%= items[:total_import_tax] %></h3>
+  </div>
+  <div class="mt-4 place-items-end">
+    <h3 class="font-bold text-2xl text-indigo-900">Total : <%= items[:price_including_tax] %></h3>
+  </div>
+
+  <div class="my-8">
+    <%= button_to items_path, method: :get, class: "inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
+      Back to Items
+    <% end %>
+  </div>
 </div>
