@@ -34,3 +34,7 @@ turbo-frame:nth-child(even) .table {
 .datefield {
     line-height: 1.12;
 }
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

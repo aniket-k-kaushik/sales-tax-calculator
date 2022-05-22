@@ -2,7 +2,30 @@
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Generate Invoice</h1>
   </div>
-  <% currency_symbol = "€" %>
+
+
+
+  <div class="mt-4">
+    <label class="block text-lg font-semibold text-gray-700">Currency</label>
+    <div class="dropdown inline-block relative mt-1">
+      <button class="block text-md font-semibold text-gray-700 p-2 border-gray-900 border-2 rounded">
+        <% if request.path == "/taxs_calculator?convert_to=INR" %>
+          INR
+        <% elsif request.path == "/taxs_calculator?convert_to=USD" %>
+          USD
+        <% else %>
+          EUR
+        <% end %>
+      </button>
+      <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+        <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="<%= taxs_calculator_index_path(convert_to: "EUR") %>">EUR</a></li>
+        <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="<%= taxs_calculator_index_path(convert_to: "INR") %>">INR</a></li>
+        <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="<%= taxs_calculator_index_path(convert_to: "USD") %>">USD</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <% currency_symbol = items[:currency_symbol] %>
   <div class="mt-8 flex flex-col">
     <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
