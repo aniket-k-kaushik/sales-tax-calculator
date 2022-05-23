@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :description, presence: true
   validates :shelf_price, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :tax_id, presence: true
+  validates :category_id, presence: true
 
   def self.tax_calculation(convert_to)
     convert_to ||= "EUR"
@@ -19,23 +19,18 @@ class Item < ApplicationRecord
     items.each do |item|
       sales_tax = (((item.shelf_price * item.category.rate) / 100) * 20).round / 20
       price_with_tax = item.quantity * (item.shelf_price + sales_tax)
-      if item.imported?
-        imported_sales_tax = (((price_with_tax * 5) / 100) * 20).round / 20
-        price_with_tax += imported_sales_tax
-      end
+      imported_sales_tax = ((((price_with_tax * 5) / 100) * 20).round / 20 if item.imported?) || 0
+      price_with_tax += imported_sales_tax
       total_price_including_tax.push(price_with_tax)
       total_sales_tax.push(sales_tax)
       total_import_tax.push(imported_sales_tax)
       items_price_with_tax.push(
         {
-          quantity: item.quantity,
-          description: item.description,
-          category: item.category.name,
+          quantity: item.quantity, description: item.description, category: item.category.name,
           price: (item.shelf_price * currenty_exchange_rate).round(2),
-          sales_tax_rate: item.category.rate,
-          sales_tax: (sales_tax * currenty_exchange_rate).round(2),
+          sales_tax_rate: item.category.rate, sales_tax: (sales_tax * currenty_exchange_rate).round(2),
           imported_sales_tax_rate: item.imported? ? 5 : 0,
-          imported_sales_tax: ((imported_sales_tax * currenty_exchange_rate).round(2) if !imported_sales_tax.nil?) || 0,
+          imported_sales_tax: (imported_sales_tax * currenty_exchange_rate).round(2),
           price_with_tax: (price_with_tax * currenty_exchange_rate).round(2)
         })
     end
