@@ -5,7 +5,7 @@
     <div><%= item.description %></div>
     <div><%= "#{currency_symbol} #{item.shelf_price}" %></div>
     <div><%= item.imported? ? "yes" : "No"  %></div>
-    <div><%= item.tax.name %></div>
+    <div><%= item.category.name %></div>
     <div>
       <% if action_name != "show" %>
         <%= link_to edit_item_path(item) do %>

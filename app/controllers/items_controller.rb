@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    @taxes = Tax.all.by_name
+    @categories = Category.all.by_name
   end
 
   # POST /items
@@ -77,10 +77,10 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:quantity, :description, :shelf_price, :imported, :tax_id)
+      params.require(:item).permit(:quantity, :description, :shelf_price, :imported, :category_id)
     end
 
     def set_select_collections
-      @taxes = Tax.all.by_name
+      @categories = Category.all.by_name
     end
 end

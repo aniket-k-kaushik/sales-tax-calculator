@@ -1,6 +1,6 @@
 <div class="w-full lg:px-96">
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Taxes</h1>
+    <h1 class="font-bold text-4xl">Category</h1>
   </div>
   <div class="max-w-2xl my-8">
     <div class="table font-bold min-w-full">
@@ -8,9 +8,9 @@
       <div>Rate (%)</div>
       <div></div>
     </div>
-    <%= turbo_frame_tag "new-tax-form", src: new_tax_path %>
-    <div id="taxes">
-      <%= render @taxes %>
+    <%= turbo_frame_tag "new-category-form", src: new_category_path %>
+    <div id="categories">
+      <%= render @categories %>
     </div>
   </div>
 </div>

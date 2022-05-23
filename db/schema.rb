@@ -12,27 +12,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_20_124143) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_23_065838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "items", force: :cascade do |t|
-    t.integer "quantity"
-    t.string "description"
-    t.integer "shelf_price"
-    t.boolean "imported"
-    t.bigint "tax_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tax_id"], name: "index_items_on_tax_id"
-  end
-
-  create_table "taxes", force: :cascade do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "items", "taxes"
+  create_table "items", force: :cascade do |t|
+    t.integer "quantity"
+    t.string "description"
+    t.integer "shelf_price"
+    t.boolean "imported"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+  end
+
+  add_foreign_key "items", "categories"
 end

@@ -16,8 +16,8 @@
     <%= inline_error_for(:imported, item) %>
   </div>
   <div>
-    <%= form.collection_select :tax_id, @taxes, :id, :name, include_blank: true, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
-    <%= inline_error_for(:tax_id, item) %>
+    <%= form.collection_select :category_id, @categories, :id, :name, include_blank: true, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
+    <%= inline_error_for(:category_id, item) %>
   </div>
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
