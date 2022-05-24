@@ -5,11 +5,11 @@ one:
   description: MyString
   shelf_price: 1
   imported: false
-  tax: one
+  category: one
 
 two:
   quantity: 1
   description: MyString
   shelf_price: 1
   imported: false
-  tax: two
+  category: two

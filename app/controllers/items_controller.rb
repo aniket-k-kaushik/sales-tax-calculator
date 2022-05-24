@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :set_select_collections, only: [:edit, :update, :new, :create]
   # GET /items
   def index
-    @items = Item.includes(:tax).all
+    @items = Item.includes(:category).all
   end
 
   # GET /items/1

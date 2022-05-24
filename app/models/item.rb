@@ -51,7 +51,7 @@ class Item < ApplicationRecord
       https = Net::HTTP.new(url.host, url.port)
       https.use_ssl = true
       request = Net::HTTP::Get.new(url)
-      request["apikey"] = "8TMaJEr0wJukhJlJ0o7HTeaw2Vqv3iBP"
+      request["apikey"] = Rails.application.credentials.fixer[:apikey]
       response = https.request(request)
       JSON.parse(response.read_body)
     else
