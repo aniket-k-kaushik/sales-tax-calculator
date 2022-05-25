@@ -2,6 +2,7 @@
 
 class Item < ApplicationRecord
   belongs_to :category
+  belongs_to :invoice
 
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :description, presence: true

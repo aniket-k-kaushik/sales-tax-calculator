@@ -1,0 +1,39 @@
+<div class="mx-auto md:w-full w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+    <div class="text-4xl mb-4 w-full font-bold ">
+       <%= render @invoice %>
+    </div>
+    <div class="w-full mb-16">
+      <div class="flex justify-between items-center">
+        <h1 class="font-bold text-4xl">Items</h1>
+      </div>
+      <div class="w-full my-8">
+        <div class="table font-bold min-w-full">
+          <div>Quantity</div>
+          <div>Description</div>
+          <div>Shelf price</div>
+          <div>Imported</div>
+          <div>Category</div>
+          <div>Invoice ID</div>
+          <div></div>
+        </div>
+        <%= turbo_frame_tag "new-item-form", src: new_item_path %>
+        <div id="items">
+          <%= render @items %>
+        </div>
+      </div>
+      <div>
+        <%= button_to taxs_calculator_path(@invoice), method: :get, class: "inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
+          Generate Invoice
+        <% end %>
+      </div>
+    </div>
+    <div class="inline-block">
+      <%= button_to 'Destroy this invoice', invoice_path(@invoice), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
+    <%= link_to 'Back to invoices', invoices_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>
