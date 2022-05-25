@@ -1,0 +1,16 @@
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Category</h1>
+  </div>
+  <div class="w-full my-8">
+    <div class="table font-bold min-w-full">
+      <div>Name</div>
+      <div>Rate (%)</div>
+      <div></div>
+    </div>
+    <%= turbo_frame_tag "new-category-form", src: new_category_path %>
+    <div id="categories">
+      <%= render @categories %>
+    </div>
+  </div>
+</div>

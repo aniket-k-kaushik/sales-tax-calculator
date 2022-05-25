@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Tax < ApplicationRecord
+class Category < ApplicationRecord
   has_many :items
   scope :by_name, -> { order(:name) }
 

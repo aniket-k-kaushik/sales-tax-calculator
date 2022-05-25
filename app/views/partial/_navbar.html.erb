@@ -7,8 +7,7 @@
 </header>
 <div class="mx-32 my-4">
   <nav class="relative z-0 rounded-lg shadow flex divide-x divide-gray-200" aria-label="Tabs">
-    <a href="/taxes" class="<%= request.path == "/taxes" ? "text-white font-semibold bg-indigo-500" : "text-gray-900 bg-white hover:bg-gray-50 " %> rounded-l-lg group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-sm font-medium text-center focus:z-10">Add Category</a>
-    <a href="/items" class="<%= request.path == "/items" ? "text-white font-semibold bg-indigo-500" : "text-gray-900 bg-white hover:bg-gray-50 " %> group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-sm font-medium text-center focus:z-10">Add Items</a>
-    <a href="/taxs_calculator" class="<%= request.path == "/taxs_calculator" ? "text-white font-semibold bg-indigo-500" : "text-gray-900 bg-white hover:bg-gray-50 " %> rounded-r-lg group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-sm font-medium text-center focus:z-10">Generate Invoice</a>
+    <a href="/categories" class="<%= request.path == "/categories" ? "text-white font-semibold bg-indigo-500" : "text-gray-900 bg-white hover:bg-gray-50 " %> rounded-l-lg group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-sm font-medium text-center focus:z-10">Category</a>
+    <a href="/invoices" class="<%= request.path == "/invoices" ? "text-white font-semibold bg-indigo-500" : "text-gray-900 bg-white hover:bg-gray-50 " %> rounded-r-lg group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-sm font-medium text-center focus:z-10">Invoices</a>
   </nav>
 </div>

@@ -1,0 +1,17 @@
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Invoices</h1>
+  </div>
+  <div class="my-8  w-full">
+    <div class="table font-bold w-full">
+      <div>Invoice Number</div>
+      <div></div>
+      <div></div>
+    </div>
+    <%= turbo_frame_tag "new-invoice-form", src: new_invoice_path %>
+    <div id="invoices">
+      <%= render @invoices %>
+    </div>
+
+  </div>
+</div>

@@ -2,9 +2,10 @@
 
 Rails.application.routes.draw do
   # Defines the root path route ("/")
-  root to: "items#index"
+  root to: "invoices#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :taxes
-  resources :items
-  resources :taxs_calculator, only: [:index]
+  resources :categories
+  resources :items, only: [:new, :create, :update, :destroy, :edit]
+  resources :invoices
+  resources :taxs_calculator, only: [:show]
 end

@@ -1,11 +1,11 @@
-<%= form_with model: tax, id: dom_id(tax, "form"), class: "table min-w-full" do |form| %>
+<%= form_with model: category, id: dom_id(category, "form"), class: "table min-w-full" do |form| %>
   <div>
     <%= form.text_field :name, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
-    <%= inline_error_for(:name, tax) %>
+    <%= inline_error_for(:name, category) %>
   </div>
   <div>
     <%= form.number_field :rate, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
-    <%= inline_error_for(:rate, tax) %>
+    <%= inline_error_for(:rate, category) %>
   </div>
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
