@@ -6,6 +6,9 @@
     <div class="text-4xl mb-4 w-full font-bold ">
        <%= render @invoice %>
     </div>
+    <div class="hidden">
+      <%= @@invoice_id = @invoice.id %>
+    </div>
     <div class="w-full mb-16">
       <div class="flex justify-between items-center">
         <h1 class="font-bold text-4xl">Items</h1>
@@ -17,7 +20,7 @@
           <div>Shelf price</div>
           <div>Imported</div>
           <div>Category</div>
-          <div>Invoice ID</div>
+          <div class="hidden">Invoice ID</div>
           <div></div>
         </div>
         <%= turbo_frame_tag "new-item-form", src: new_item_path %>

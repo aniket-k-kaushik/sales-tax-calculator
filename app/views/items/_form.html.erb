@@ -19,8 +19,8 @@
     <%= form.collection_select :category_id, @categories, :id, :name, include_blank: true, class: "block rounded-md border border-gray-200 outline-none px-3 py-2  w-full" %>
     <%= inline_error_for(:category_id, item) %>
   </div>
-  <div class="">
-    <%= form.number_field :invoice_id, class: "block rounded-md border border-gray-200 outline-none px-3 py-2 w-full" %>
+  <div class="hidden">
+    <%= form.number_field :invoice_id, value: @@invoice_id, class: "block rounded-md border border-gray-200 outline-none px-3 py-2 w-full" %>
     <%= inline_error_for(:invoice_id, item) %>
   </div>
 
