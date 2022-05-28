@@ -62,6 +62,9 @@ group :development, :test do
   # For code formatting and linting
   gem "rubocop"
   gem "rubocop-rails"
+
+  gem "rspec-rails"
+
 end
 
 group :development do
@@ -82,4 +85,5 @@ group :test do
   gem "webdrivers"
 end
 
+gem "simplecov", require: false, group: :test
 gem "tailwindcss-rails", "~> 2.0"
