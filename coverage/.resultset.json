@@ -70,6 +70,112 @@
           null
         ]
       },
+      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/services/invoice_services/currency_conversion.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/services/invoice_services/tax_calculation.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/models/item.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/models/category.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/controllers/application_controller.rb": {
         "lines": [
           null,
@@ -356,121 +462,8 @@
         ],
         "branches": {
         }
-      },
-      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/models/category.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/models/item.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/services/invoice_services/currency_conversion.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "/home/aniketkaushik/dreamspring/sales-tax-calculator/app/services/invoice_services/tax_calculation.rb": {
-        "lines": [
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1653731788
+    "timestamp": 1653736180
   }
 }
