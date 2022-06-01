@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :invoices
   resources :taxs_calculator, only: [:show] do
     collection do
-      get "download/:id" => "taxs_calculator#download"
+      get "download/:id" => "taxs_calculator#download", as: "download"
     end
   end
 end
