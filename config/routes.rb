@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :items, only: [:new, :create, :update, :destroy, :edit]
   resources :invoices
-  resources :taxs_calculator, only: [:show]
+  resources :taxs_calculator, only: [:show] do
+    collection do
+      get "download/:id" => "taxs_calculator#download"
+    end
+  end
 end
