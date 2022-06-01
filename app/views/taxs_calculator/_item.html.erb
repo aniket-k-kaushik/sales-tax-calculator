@@ -69,9 +69,11 @@
     <h3 class="font-bold text-2xl text-indigo-900">Total : <%= "#{currency_symbol} #{items[:price_including_tax]}" %></h3>
   </div>
 
+
   <div class="my-8">
-    <%= button_to invoice_path(@invoice), method: :get, class: "inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" do %>
-      Back to Invoice Add Item
-    <% end %>
+    <div class="inline-block">
+      <%= link_to "Back to Invoice Add Item", invoice_path(@invoice), method: :get, class: " items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    </div>
+    <%= link_to "Download Invoice", download_taxs_calculator_index_path(@invoice, convert_to: currency_symbol), method: :get, class: " items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
   </div>
 </div>

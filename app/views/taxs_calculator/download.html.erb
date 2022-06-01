@@ -1,0 +1,68 @@
+<div class="m-10">
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl"><%= @invoice.invoice_number %></h1>
+    </div>
+    <% currency_symbol = @items[:currency_symbol] %>
+    <div class="mt-4">
+      <label class="block text-lg font-semibold text-gray-700">Currency</label>
+      <div class="dropdown inline-block relative mt-1">
+        <button class="block text-md font-semibold text-gray-700 p-2 border-gray-900 border-2 rounded">
+          <%= "#{currency_symbol}" %>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-col">
+      <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+          <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-300">
+              <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Category</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Quantity</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Description</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Price</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Sales Tax Rate (%)</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Sales Tax</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Import Tax Rate (%)</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Import Tax</th>
+                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Total Price</th>
+              </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 bg-white">
+
+              <% @items[:items_price_with_tax].each do |item| %>
+                <tr>
+                  <div id="<%= item[:id] %>">
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:category] %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:quantity] %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= item[:description] %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:price]}" %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{item[:sales_tax_rate]} %" %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:sales_tax]}" %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{item[:imported_sales_tax_rate]} %" %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:imported_sales_tax]}" %></td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= "#{currency_symbol} #{item[:price_with_tax]}" %></td>
+                  </div>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <h3 class="font-bold text-md text-gray-400">Total Sales Tax : <%= "#{currency_symbol} #{@items[:total_sales_tax]}" %></h3>
+    </div>
+    <div class="mt-2">
+      <h3 class="font-bold text-md text-gray-400">Total Import Tax : <%= "#{currency_symbol} #{@items[:total_import_tax]}" %></h3>
+    </div>
+    <div class="mt-4 place-items-end">
+      <h3 class="font-bold text-2xl text-indigo-900">Total : <%= "#{currency_symbol} #{@items[:price_including_tax]}" %></h3>
+    </div>
+  </div>
+</div>
